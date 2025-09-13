@@ -70,3 +70,14 @@ temp/
 
 # Test outputs
 test_output/
+
+# Node.js (for frontend directory)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm
+
+# Screenshot files
+Screenshot*.png

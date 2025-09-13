@@ -1,0 +1,146 @@
+{
+  "lenders": {
+    "great_southern_bank": {
+      "name": "Great Southern Bank",
+      "lvr_limits": {
+        "owner_occupied": {
+          "without_lmi": 80,
+          "with_lmi": 95
+        },
+        "investment": {
+          "without_lmi": 80,
+          "with_lmi": 90
+        }
+      },
+      "dti_limits": {
+        "owner_occupied_under_80": 7,
+        "investment_under_80": 8,
+        "80_to_90_lvr": 7,
+        "above_90_lvr": 6
+      },
+      "min_income": {
+        "payg": 40000,
+        "self_employed": 50000
+      },
+      "employment_requirements": {
+        "payg_permanent": "3_months",
+        "payg_casual": "6_months", 
+        "self_employed": "2_years",
+        "contract": "12_months"
+      },
+      "interest_rates": {
+        "owner_occupied_pi": 5.89,
+        "owner_occupied_io": 6.29,
+        "investment_pi": 6.19,
+        "investment_io": 6.59
+      },
+      "property_acceptance": {
+        "standard_residential": true,
+        "rural_residential_under_10ha": true,
+        "rural_residential_10_to_40ha": false,
+        "high_density": false,
+        "studio_apartments": false,
+        "min_unit_size": 40
+      },
+      "unacceptable_borrowers": [
+        "undischarged_bankrupt",
+        "under_18_years",
+        "foreign_residents"
+      ]
+    },
+    "latrobe_financial": {
+      "name": "LaTrobe Financial",
+      "lvr_limits": {
+        "all_purposes": {
+          "up_to_3m": 80,
+          "3m_to_5m": 75,
+          "5m_to_25m": 70
+        }
+      },
+      "loan_amount": {
+        "minimum": 100000,
+        "maximum": 25000000
+      },
+      "risk_grades_accepted": ["A", "B", "C1", "C2", "C3"],
+      "life_event_approach": true,
+      "products": {
+        "full_doc": {
+          "income_verification": "full",
+          "acceptable_borrowers": "fully_verify_income"
+        },
+        "lite_doc": {
+          "income_verification": "alternative",
+          "target_market": "self_employed"
+        }
+      },
+      "interest_only": {
+        "max_term": "5_years",
+        "rate_loading": 0.40
+      },
+      "property_acceptance": {
+        "residential": true,
+        "rural_residential_up_to_100_acres": true
+      }
+    },
+    "suncorp_bank": {
+      "name": "Suncorp Bank",
+      "lvr_limits": {
+        "maximum": 95
+      },
+      "income_types": {
+        "core_income": {
+          "payg_permanent": {
+            "min_employment": "3_months",
+            "percentage_used": 100
+          },
+          "payg_casual": {
+            "min_employment": "6_months", 
+            "percentage_used": 100
+          },
+          "rental_income": {
+            "percentage_used": 75,
+            "expense_floor": 15
+          }
+        },
+        "secondary_income": {
+          "overtime_non_essential": {
+            "min_history": "6_months",
+            "percentage_used": 80
+          },
+          "foreign_income": {
+            "percentage_used": 70,
+            "min_history": "6_months"
+          }
+        }
+      },
+      "self_employed": {
+        "basic_validation": {
+          "max_lvr": 80,
+          "min_trading": "2_years",
+          "max_income_decrease": 20
+        },
+        "comprehensive_validation": {
+          "no_restrictions": true,
+          "min_trading": "2_years"
+        }
+      },
+      "property_requirements": {
+        "min_size_house": 50,
+        "min_size_unit": 40,
+        "max_properties_before_commercial": 4
+      },
+      "genuine_savings": {
+        "required_if_lvr_over": 90,
+        "minimum_percentage": 5,
+        "min_period": "3_months"
+      }
+    },
+    "firstmac": {
+      "name": "Firstmac",
+      "target_market": "near_prime_borrowers",
+      "specialization": "alternative_income_verification",
+      "serves": "customers_rejected_by_major_banks",
+      "approach": "flexible_credit_assessment"
+    }
+  }
+}
