@@ -1,0 +1,44 @@
+[
+  {
+    "name": "First Home Buyer - Young Professional",
+    "annual_income": 95000,
+    "savings": 85000,
+    "loan_amount": 500000,
+    "property_value": 580000,
+    "property_type": "apartment",
+    "employment_type": "full_time",
+    "employment_length_months": 18,
+    "credit_score": 750,
+    "existing_debts": 15000,
+    "dependents": 0,
+    "first_home_buyer": true
+  },
+  {
+    "name": "Family Upgrade - High Income",
+    "annual_income": 180000,
+    "savings": 150000,
+    "loan_amount": 750000,
+    "property_value": 900000,
+    "property_type": "house",
+    "employment_type": "full_time",
+    "employment_length_months": 48,
+    "credit_score": 800,
+    "existing_debts": 25000,
+    "dependents": 2,
+    "first_home_buyer": false
+  },
+  {
+    "name": "Self-Employed Investor",
+    "annual_income": 120000,
+    "savings": 200000,
+    "loan_amount": 400000,
+    "property_value": 500000,
+    "property_type": "investment",
+    "employment_type": "self_employed",
+    "employment_length_months": 36,
+    "credit_score": 720,
+    "existing_debts": 50000,
+    "dependents": 1,
+    "first_home_buyer": false
+  }
+]
