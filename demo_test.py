@@ -12,7 +12,7 @@ def test_recommendation_system():
     # Test different client scenarios
     test_scenarios = [
         {
-            "name": "🏠 First Home Buyer - Young Professional",
+            "name": "First Home Buyer - Young Professional",
             "profile": {
                 "annual_income": 95000,
                 "savings": 85000,
@@ -28,7 +28,7 @@ def test_recommendation_system():
             }
         },
         {
-            "name": "🏡 Family Upgrade - High Income",
+            "name": "Family Upgrade - High Income",
             "profile": {
                 "annual_income": 180000,
                 "savings": 150000,
@@ -44,7 +44,7 @@ def test_recommendation_system():
             }
         },
         {
-            "name": "🏢 Investment Property - Self-Employed",
+            "name": "Investment Property - Self-Employed",
             "profile": {
                 "annual_income": 120000,
                 "savings": 200000,
@@ -61,14 +61,14 @@ def test_recommendation_system():
         }
     ]
     
-    print("🤖 AI Loan Recommendation System - Live Demo")
+    print("AI Loan Recommendation System - Live Demo")
     print("=" * 60)
-    print("🌐 Server running at: http://localhost:8000")
-    print("💡 Testing different client scenarios...")
+    print("Server running at: http://localhost:8000")
+    print("Testing different client scenarios...")
     print()
     
     for scenario in test_scenarios:
-        print(f"📋 Testing: {scenario['name']}")
+        print(f"Testing: {scenario['name']}")
         print("-" * 40)
         
         try:
@@ -85,9 +85,9 @@ def test_recommendation_system():
                 data = response.json()
                 client = data["client_summary"]
                 
-                print(f"✅ Success in {processing_time:.2f}s")
-                print(f"📊 Profile: ${client['income']:,} income, {client['lvr']}% LVR, {client['deposit']}% deposit")
-                print(f"🏆 Found {len(data['recommendations'])} recommendations:")
+                print(f"Success in {processing_time:.2f}s")
+                print(f"Profile: ${client['income']:,} income, {client['lvr']}% LVR, {client['deposit']}% deposit")
+                print(f"Found {len(data['recommendations'])} recommendations:")
                 print()
                 
                 for i, rec in enumerate(data["recommendations"], 1):
@@ -99,33 +99,33 @@ def test_recommendation_system():
                     print(f"      Score: {rec['match_score']}% | Fee: ${loan['application_fee']}")
                     print(f"      Why: {rec['reasoning']}")
                     if rec['warnings']:
-                        print(f"      ⚠️  {', '.join(rec['warnings'])}")
+                        print(f"        {', '.join(rec['warnings'])}")
                     print()
                 
             else:
-                print(f"❌ Failed: HTTP {response.status_code}")
+                print(f"Failed: HTTP {response.status_code}")
                 print(f"   Error: {response.text}")
                 
         except Exception as e:
-            print(f"❌ Error: {str(e)}")
-        
+            print(f"Error: {str(e)}")
+
         print("-" * 40)
         print()
     
     print("🎉 Demo Complete!")
     print()
-    print("💻 To use the web interface:")
+    print(" To use the web interface:")
     print("   1. Open: http://localhost:8000")
     print("   2. Fill in client details")
     print("   3. Get instant recommendations")
     print()
-    print("🔧 This is a demo version showing:")
+    print(" This is a demo version showing:")
     print("   • Real-time loan matching logic")
     print("   • LVR and income eligibility checks")
     print("   • Competitive rate analysis")
     print("   • Professional web interface")
     print()
-    print("🚀 The full system would:")
+    print(" The full system would:")
     print("   • Process 100+ bank documents with AI")
     print("   • Use vector database for fast retrieval")
     print("   • Provide 90%+ accuracy with Anthropic Claude")
