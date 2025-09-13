@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import List, Optional
 import os
@@ -51,9 +52,13 @@ class RecommendationResponse(BaseModel):
     ai_confidence: str
     broker_review_suggested: bool
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def root():
-    return {"message": "AI Loan Recommender API", "status": "running"}
+    with open("index.html", "r") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
+
+from fastapi.responses import HTMLResponse
 
 @app.get("/health")
 async def health():

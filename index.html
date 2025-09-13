@@ -82,7 +82,7 @@
         <div class="header">
             <h1>AI Loan Recommender</h1>
             <p>Get personalized home loan recommendations in seconds</p>
-            <p><strong>Powered by AI</strong> • Live on Vercel</p>
+            <p><strong>Powered by AI</strong> • Live on Render</p>
         </div>
         
         <form id="loanForm">
@@ -185,7 +185,7 @@
             document.getElementById('results').innerHTML = '<div class="loading">AI analyzing loan options...</div>';
             
             try {
-                const response = await fetch('/api/recommend', {
+                const response = await fetch('https://ai-loan-recommender-5.onrender.com/recommend', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
@@ -205,8 +205,8 @@
             let html = '<div class="success">AI Analysis Complete!</div>';
             html += '<h2 style="color: #333; text-align: center;">Top Loan Recommendations</h2>';
             html += `<p style="text-align: center; color: #666; font-size: 16px;">
-                <strong>LVR:</strong> ${data.client_summary.lvr}% | 
-                <strong>Deposit:</strong> ${data.client_summary.deposit}%
+                <strong>LVR:</strong> ${data.client_profile_summary.lvr}% | 
+                <strong>Deposit:</strong> ${data.client_profile_summary.deposit}%
             </p>`;
             
             data.recommendations.forEach((rec, index) => {
@@ -223,9 +223,6 @@
                         <p><strong>Application Fee:</strong> $${loan.application_fee.toLocaleString()}</p>
                         <p><strong>AI Match Score:</strong> ${rec.match_score}%</p>
                         
-                        <div class="features">
-                            ${loan.features.map(f => `<span class="feature">${f}</span>`).join('')}
-                        </div>
                         
                         <p><strong>AI Analysis:</strong> ${rec.reasoning}</p>
                         
