@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import List, Optional
 import os
@@ -54,11 +55,20 @@ class RecommendationResponse(BaseModel):
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    with open("index.html", "r") as f:
-        html_content = f.read()
-    return HTMLResponse(content=html_content)
-
-from fastapi.responses import HTMLResponse
+    try:
+        with open("index.html", "r") as f:
+            html_content = f.read()
+        return HTMLResponse(content=html_content)
+    except FileNotFoundError:
+        # Fallback HTML if index.html not found
+        html_content = """
+        <!DOCTYPE html>
+        <html><head><title>AI Loan Recommender</title></head>
+        <body><h1>AI Loan Recommender is running!</h1>
+        <p>API endpoint: /recommend</p>
+        <p>Health check: /health</p></body></html>
+        """
+        return HTMLResponse(content=html_content)
 
 @app.get("/health")
 async def health():
